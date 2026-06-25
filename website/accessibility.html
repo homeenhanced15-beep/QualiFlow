@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://apis.google.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self';">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessibility Statement | Leads QualiFlow</title>
+    <meta name="description" content="Leads QualiFlow ADA Compliance and Accessibility Statement - Our commitment to digital accessibility for everyone.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header>
+        <div class="logo"><a href="index.html"><img src="logo.svg" alt="Leads QualiFlow Logo" width="200" height="60"></a></div>
+        <nav aria-label="Main navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="how-it-works.html">How It Works</a></li>
+                    <li><a href="anna.html">Meet Anna</a></li>
+                    <li><a href="ai-clone.html">AI Clone</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+        </nav>
+    </header>
+
+    <main id="main-content" class="container">
+        <article>
+            <h1>ADA Compliance & Accessibility Statement</h1>
+            <p><strong>Effective Date:</strong> June 14, 2026<br>
+            <strong>Last Updated:</strong> June 14, 2026</p>
+
+            <section aria-labelledby="commitment">
+                <h2 id="commitment">1. Our Commitment</h2>
+                <p>Leads QualiFlow ("Company," "we," "us," or "our") is committed to ensuring digital accessibility for all users, including individuals with disabilities. We continuously work to improve the user experience for everyone and apply relevant accessibility standards to ensure our website, chatbot platform, and all digital services are accessible to the widest possible audience.</p>
+                <p>This statement reflects our commitment to compliance with the Americans with Disabilities Act (ADA), Section 508 of the Rehabilitation Act, and the Web Content Accessibility Guidelines (WCAG) 2.1 Level AA standards.</p>
+            </section>
+
+            <section aria-labelledby="standards">
+                <h2 id="standards">2. Accessibility Standards We Follow</h2>
+                <ul>
+                    <li><strong>WCAG 2.1 Level AA:</strong> The Web Content Accessibility Guidelines published by W3C serve as our primary accessibility benchmark.</li>
+                    <li><strong>ADA Title III:</strong> We meet the requirements of Title III of the Americans with Disabilities Act.</li>
+                    <li><strong>Section 508:</strong> We implement standards equivalent to Section 508 of the Rehabilitation Act.</li>
+                </ul>
+            </section>
+
+            <section aria-labelledby="features">
+                <h2 id="features">3. Accessibility Features</h2>
+                <h3 id="screen-readers">3.1 Screen Reader Compatibility</h3>
+                <p>Proper semantic HTML hierarchy, ARIA labels, alt text, and descriptive links ensure smooth navigation for screen reader users.</p>
+                
+                <h3 id="voice-nav">3.2 Voice Navigation</h3>
+                <p>Full voice navigation capability using Web Speech API, including voice-activated chatbot interactions and navigation commands.</p>
+
+                <h3 id="kb-nav">3.3 Keyboard Navigation</h3>
+                <p>Full keyboard navigability with logical tab order, visible focus indicators, and skip-to-content links.</p>
+
+                <h3 id="captions">3.4 Captioning and Transcripts</h3>
+                <p>Real-time captioning for chatbot interactions and captions for all video content.</p>
+            </section>
+
+            <section aria-labelledby="chatbot-acc">
+                <h2 id="chatbot-acc">4. Chatbot-Specific Accessibility</h2>
+                <ul>
+                    <li>Screen reader announcements for new messages and status changes.</li>
+                    <li>Keyboard-only operation for all chatbot interactions.</li>
+                    <li>Voice input and output for auditory interaction preference.</li>
+                    <li>Option to transfer to a human representative at any point.</li>
+                </ul>
+            </section>
+
+            <section aria-labelledby="compliance-efforts">
+                <h2 id="compliance-efforts">5. Ongoing Compliance Efforts</h2>
+                <p>We conduct quarterly accessibility audits, engage in user testing with people with disabilities, and provide annual staff training.</p>
+            </section>
+
+            <section aria-labelledby="feedback">
+                <h2 id="feedback">7. Feedback and Support</h2>
+                <p>We welcome your feedback on accessibility. If you encounter barriers, contact us at:</p>
+                <p><strong>Email:</strong> accessibility@leadsqualiflow.com</p>
+                <p>We respond to accessibility requests within 5 business days.</p>
+            </section>
+
+            <section aria-labelledby="state-compliance">
+                <h2 id="state-compliance">9. Compliance with State Laws</h2>
+                <p>We comply with the Pennsylvania Human Relations Act, the California Unruh Civil Rights Act, and the New York State Human Rights Law regarding digital accessibility.</p>
+            </section>
+        </article>
+    </main>
+
+    
+
+    
+
+    
+    <!-- Accessibility Controls -->
+    <div class="acc-controls">
+        <button id="voice-btn" class="voice-btn" aria-label="Trigger Voice Navigation">🎤</button>
+        <button id="cc-btn" class="cc-btn" aria-label="Toggle Real-time Captions">CC</button>
+    </div>
+
+    <!-- Captions Overlay -->
+    <div id="captions-container" class="captions-container" role="status" aria-live="polite">
+        <p id="caption-text"></p>
+    </div>
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Leads QualiFlow. <a href="index.html">Back to Home</a></p>
+        </div>
+        <div class="secure-badge" style="display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1rem; color: #008554; font-size: 0.9rem; font-weight: bold;"><span>🔒 Secure Connection</span></div>
+    </footer>
+    <script src="app.js"></script>
+</body>
+</html>

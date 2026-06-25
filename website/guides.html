@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://apis.google.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self';">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guides & Documentation | Leads QualiFlow</title>
+    <meta name="description" content="Learn how to use the Leads QualiFlow client dashboard, manage your leads, and integrate with your CRM.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header>
+        <div class="logo"><a href="index.html"><img src="logo.svg" alt="Leads QualiFlow Logo" width="200" height="60"></a></div>
+        <nav aria-label="Main navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="how-it-works.html">How It Works</a></li>
+                    <li><a href="anna.html">Meet Anna</a></li>
+                    <li><a href="ai-clone.html">AI Clone</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+        </nav>
+    </header>
+
+    <main id="main-content" class="container">
+        <h1>Help Center & User Guides</h1>
+        
+        <section aria-labelledby="dashboard-guide">
+            <h2 id="dashboard-guide">Using the Client Dashboard</h2>
+            <p>Your Leads QualiFlow dashboard is the central hub for managing your qualified leads and tracking performance metrics.</p>
+            
+            <div style="background: #f4f7f6; padding: 2rem; border-radius: 8px; margin-top: 2rem;">
+                <h3>Dashboard Overview</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1.5rem 0;">
+                    <div style="background: #fff; padding: 1rem; border: 1px solid #ddd; border-radius: 4px; text-align: center;">
+                        <span style="display: block; font-size: 0.8rem; color: #666;">LEADS THIS MO</span>
+                        <span style="font-size: 1.5rem; font-weight: bold; color: var(--primary-color);">47</span>
+                    </div>
+                    <div style="background: #fff; padding: 1rem; border: 1px solid #ddd; border-radius: 4px; text-align: center;">
+                        <span style="display: block; font-size: 0.8rem; color: #666;">QUAL. RATE</span>
+                        <span style="font-size: 1.5rem; font-weight: bold; color: var(--primary-color);">68%</span>
+                    </div>
+                    <div style="background: #fff; padding: 1rem; border: 1px solid #ddd; border-radius: 4px; text-align: center;">
+                        <span style="display: block; font-size: 0.8rem; color: #666;">PIPELINE VALUE</span>
+                        <span style="font-size: 1.5rem; font-weight: bold; color: var(--primary-color);">$142K</span>
+                    </div>
+                </div>
+                <h4>Key Navigation Areas</h4>
+                <ul>
+                    <li><strong>Leads:</strong> View, filter, and export your pre-qualified lead data.</li>
+                    <li><strong>Reports:</strong> Access monthly performance analytics and ROI tracking.</li>
+                    <li><strong>Settings:</strong> Configure your CRM integrations and lead scoring thresholds.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section aria-labelledby="crm-guide" style="margin-top: 4rem;">
+            <h2 id="crm-guide">CRM Integration Guide</h2>
+            <p>Connect your lead flow directly to your existing sales tools. We support real-time delivery to Salesforce, HubSpot, Slack, and more.</p>
+            <ol>
+                <li>Navigate to <strong>Settings → Integrations</strong>.</li>
+                <li>Select your CRM from the list of supported providers.</li>
+                <li>Follow the OAuth authentication prompts to grant secure access.</li>
+                <li>Choose your sync frequency (Real-time is recommended for "Hot" leads).</li>
+            </ol>
+        </section>
+
+        <section aria-labelledby="score-tiers" style="margin-top: 4rem;">
+            <h2 id="score-tiers">Understanding Lead Score Tiers</h2>
+            <p>Prioritize your outreach efforts based on our proprietary scoring algorithm.</p>
+            <table aria-label="Lead Score Tiers">
+                <thead>
+                    <tr>
+                        <th scope="col">Score Range</th>
+                        <th scope="col">Classification</th>
+                        <th scope="col">Recommended Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>0–25</td>
+                        <td>🟦 Cold</td>
+                        <td>Enter automated nurture sequence.</td>
+                    </tr>
+                    <tr>
+                        <td>26–59</td>
+                        <td>🟩 Warm</td>
+                        <td>SDR follow-up within 24 hours.</td>
+                    </tr>
+                    <tr>
+                        <td>60–85</td>
+                        <td>🟧 Hot</td>
+                        <td>Sales rep follow-up within 4 hours.</td>
+                    </tr>
+                    <tr>
+                        <td>86+</td>
+                        <td>🔥 Elite</td>
+                        <td>Senior rep follow-up within 1 hour.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    
+    <script src="app.js"></script>
+
+    <!-- Accessibility Controls -->
+    <div class="acc-controls">
+        <button id="voice-btn" class="voice-btn" aria-label="Trigger Voice Navigation">🎤</button>
+        <button id="cc-btn" class="cc-btn" aria-label="Toggle Real-time Captions">CC</button>
+    </div>
+
+    <!-- Captions Overlay -->
+    <div id="captions-container" class="captions-container" role="status" aria-live="polite">
+        <p id="caption-text"></p>
+    </div>
+
+    <footer>
+        <div class="container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;">
+            <div>
+                <h3>Leads QualiFlow</h3>
+                <p>Delivering high-intent leads through accessible AI.</p>
+                <div class="ada-badge" style="background: transparent; border-color: #444; color: #ccc;">
+                     <span>WCAG 2.1 AA Compliant</span>
+                </div>
+            </div>
+            <div>
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="how-it-works.html">How It Works</a></li>
+                    <li><a href="guides.html" aria-current="page">Guides</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                    <li><a href="cookies.html">Cookie Policy</a></li>
+                    <li><a href="disclaimers.html">Disclaimers</a></li>
+                    <li><a href="accessibility.html">Accessibility Statement</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container" style="border-top: 1px solid #333; margin-top: 2rem; padding-top: 1rem; text-align: center;">
+            <p>&copy; 2026 Leads QualiFlow. All rights reserved.</p>
+        </div>
+        <div class="secure-badge" style="display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1rem; color: #008554; font-size: 0.9rem; font-weight: bold; justify-content: center;"><span>🔒 Secure Connection</span></div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

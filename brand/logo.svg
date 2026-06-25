@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120" width="400" height="120" role="img" aria-label="Leads QualiFlow Logo">
+  <defs>
+    <linearGradient id="primaryGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0057B7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#003D80;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00A86B;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#007A4E;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="55" cy="60" r="48" fill="url(#primaryGrad)" />
+
+  <!-- Chat bubble inner shape (white) -->
+  <path d="M30,40 Q30,28 42,28 L68,28 Q80,28 80,40 L80,60 Q80,72 68,72 L55,72 L45,82 L45,72 L42,72 Q30,72 30,60 Z" fill="#FFFFFF" />
+
+  <!-- Checkmark in the bubble -->
+  <polyline points="40,50 50,62 68,42" fill="none" stroke="url(#accentGrad)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+
+  <!-- Sparkle/filter dots -->
+  <circle cx="16" cy="22" r="2.5" fill="#00A86B" />
+  <circle cx="90" cy="20" r="2" fill="#00A86B" opacity="0.7" />
+  <circle cx="95" cy="45" r="1.5" fill="#00A86B" opacity="0.5" />
+
+  <!-- Wordmark -->
+  <text x="115" y="52" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="22" font-weight="300" fill="#1A1A2E" letter-spacing="1">Leads</text>
+  <text x="115" y="80" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="26" font-weight="700" fill="#0057B7" letter-spacing="1.5">QualiFlow</text>
+
+  <!-- Tagline -->
+  <text x="115" y="98" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="10" font-weight="400" fill="#5A6A7A" letter-spacing="2">QUALIFIED LEADS · DELIVERED</text>
+</svg>

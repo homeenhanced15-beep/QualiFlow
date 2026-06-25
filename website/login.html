@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://apis.google.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self';">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Leads QualiFlow</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="logo.svg" alt="Leads QualiFlow Logo" width="200" height="60"></a>
+        </div>
+        <nav aria-label="Main navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="how-it-works.html">How It Works</a></li>
+                    <li><a href="anna.html">Meet Anna</a></li>
+                    <li><a href="ai-clone.html">AI Clone</a></li>
+                    <li><a href="login.html" aria-current="page">Login</a></li>
+                </ul>
+        </nav>
+    </header>
+
+    <main id="main-content" class="container">
+        <h1>Client Login</h1>
+    <p>Choose your secure sign-in method. All connections are encrypted.</p>
+    
+    <!-- Accessible announcement region (hidden) -->
+    <div id="login-announcement" role="alert" aria-live="assertive" class="sr-only"></div>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;">
+        <section aria-labelledby="login-methods">
+            <h2 id="login-methods">Sign In</h2>
+
+            <!-- Method 1: Email & Password -->
+            <fieldset style="background: #f9f9f9; padding: 1.5rem; border-radius: 8px; border: 1px solid #ddd; margin-bottom: 1.5rem;">
+                <legend><strong>1. Email & Password</strong></legend>
+                <form id="password-login-form" novalidate>
+                    <div class="form-group">
+                        <label for="login-email">Email Address</label>
+                        <input type="email" id="login-email" required aria-required="true" autocomplete="email" placeholder="you@example.com">
+                        <span class="error-message" id="login-email-error" role="alert" aria-live="polite"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Password</label>
+                        <div style="display: flex; gap: 0.5rem; align-items: center;">
+                            <input type="password" autocomplete="current-password" spellcheck="false" id="login-password" required aria-required="true" aria-describedby="password-strength">
+                            <button type="button" id="toggle-password-vis" aria-label="Show password" style="background:none; border:none; cursor:pointer; font-size:1.2rem;">👁️</button>
+                        </div>
+                        <div id="password-strength" role="status" aria-live="polite"></div>
+                        <span class="error-message" id="login-password-error" role="alert" aria-live="polite"></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="login-submit-btn">Sign In</button>
+                    <p><a href="#" id="forgot-password-link">Forgot password?</a></p>
+                    <input type="hidden" name="csrf_token" value="csrft_2026_lqf_static">
+                </form>
+            </fieldset>
+
+            <!-- Method 2: Sign in with Google (live button) -->
+            <fieldset style="background: #f9f9f9; padding: 1.5rem; border-radius: 8px; border: 1px solid #ddd; margin-bottom: 1.5rem;">
+                <legend><strong>2. Sign in with Google</strong></legend>
+                <p style="font-size:0.9rem; margin-bottom:1rem;">Use your Google account for one-click secure access.</p>
+                <div id="g_id_onload" data-client_id="YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com" data-context="signin" data-ux_mode="popup" data-callback="handleGoogleCredential" data-auto_prompt="false"></div>
+                <div class="g_id_signin" data-type="standard" data-shape="rectangular" data-theme="outline" data-text="signin_with" data-size="large" data-logo_alignment="left"></div>
+                <button id="google-signin-btn" class="btn" style="background: white; color: #444; border: 2px solid #ddd; display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; margin-top: 0.5rem;">
+                    <span aria-hidden="true" style="font-weight:bold; color:#4285F4;">G</span>
+                    Sign in with Google
+                </button>
+            </fieldset>
+
+            <!-- Method 3: Biometric Login -->
+            <fieldset style="background: #f9f9f9; padding: 1.5rem; border-radius: 8px; border: 1px solid #ddd; margin-bottom: 1.5rem;">
+                <legend><strong>3. Biometric Login</strong></legend>
+                <p style="font-size:0.9rem; margin-bottom:1rem;">Use your device's fingerprint or face recognition for instant access.</p>
+                <button id="biometric-login-btn" class="btn btn-accent" style="display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%;">
+                    <span aria-hidden="true">🔑</span>
+                    <span>Login with Fingerprint or Face ID</span>
+                </button>
+                <p id="biometric-status" role="status" aria-live="polite" style="font-size:0.85rem; margin-top:0.5rem;"></p>
+            </fieldset>
+
+            <!-- Method 4: Sign in with Anna -->
+            <fieldset style="background: #e8f4f8; padding: 1.5rem; border-radius: 8px; border: 2px solid #0057B7;">
+                <legend><strong>4. Sign in with Anna</strong></legend>
+                <p style="font-size:0.9rem; margin-bottom:1rem;">Let Anna, your AI onboarding expert, verify your identity through a quick voice or chat verification.</p>
+                <button id="anna-login-btn" class="btn" style="background: #0057B7; color: white; display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%;">
+                    <span aria-hidden="true">🤖</span>
+                    <span>Sign in with Anna</span>
+                </button>
+                <p style="font-size:0.8rem; margin-top:0.5rem; color:#555;">Anna will ask you a quick verification question to confirm your identity.</p>
+                <div id="anna-verification-area" role="status" aria-live="polite"></div>
+            </fieldset>
+        </section>
+
+        <!-- Registration Section -->
+        <section aria-labelledby="register-section">
+            <h2 id="register-section">New Client Registration</h2>
+            <p>Create your account to access lead packages and Anna's AI onboarding.</p>
+            <div style="background: #fff; padding: 1.5rem; border-radius: 8px; border: 1px solid #ddd;">
+                <form id="registration-form" novalidate>
+                    <div class="form-group">
+                        <label for="reg-name">Full Name</label>
+                        <input type="text" id="reg-name" required aria-required="true" autocomplete="name">
+                        <span class="error-message" id="reg-name-error" role="alert" aria-live="polite"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="reg-email">Business Email</label>
+                        <input type="email" id="reg-email" required aria-required="true" autocomplete="email">
+                        <span class="error-message" id="reg-email-error" role="alert" aria-live="polite"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="reg-company">Company Name</label>
+                        <input type="text" id="reg-company" required aria-required="true" autocomplete="organization">
+                        <span class="error-message" id="reg-company-error" role="alert" aria-live="polite"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="reg-password">Create Password</label>
+                        <div style="display: flex; gap: 0.5rem; align-items: center;">
+                            <input type="password" autocomplete="new-password" spellcheck="false" id="reg-password" required aria-required="true" aria-describedby="reg-pass-hint reg-pass-strength">
+                            <button type="button" id="toggle-reg-password-vis" aria-label="Show password" style="background:none; border:none; cursor:pointer; font-size:1.2rem;">👁️</button>
+                        </div>
+                        <small id="reg-pass-hint">Minimum 12 characters, include uppercase, lowercase, number, and special character.</small>
+                        <div id="reg-pass-strength" role="status" aria-live="polite"></div>
+                        <span class="error-message" id="reg-password-error" role="alert" aria-live="polite"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="reg-confirm-password">Confirm Password</label>
+                        <input type="password" autocomplete="new-password" id="reg-confirm-password" required aria-required="true">
+                        <span class="error-message" id="reg-confirm-error" role="alert" aria-live="polite"></span>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="reg-terms" required aria-required="true">
+                            I agree to the <a href="terms.html" target="_blank">Terms of Service</a> and <a href="privacy.html" target="_blank">Privacy Policy</a>
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="register-submit-btn">Create Secure Account</button>
+                    <input type="hidden" name="csrf_token" value="csrft_2026_lqf_static">
+                    <p id="registration-status" role="status" aria-live="polite" style="margin-top:0.5rem;"></p>
+                </form>
+            </div>
+        </section>
+    </div>
+    </main>
+
+    
+
+    
+
+    
+    <!-- Accessibility Controls -->
+    <div class="acc-controls">
+        <button id="voice-btn" class="voice-btn" aria-label="Trigger Voice Navigation">🎤</button>
+        <button id="cc-btn" class="cc-btn" aria-label="Toggle Real-time Captions">CC</button>
+    </div>
+
+    <!-- Captions Overlay -->
+    <div id="captions-container" class="captions-container" role="status" aria-live="polite">
+        <p id="caption-text"></p>
+    </div>
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Leads QualiFlow. <a href="accessibility.html">ADA Compliance Statement</a></p>
+        </div>
+        <div class="ada-badge" style="background: transparent; border-color: #444; color: #ccc; display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 0.5rem; font-size: 0.85rem;"><span>♿ WCAG 2.1 AA Compliant</span></div>
+    <div class="secure-badge" style="display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1rem; color: #008554; font-size: 0.9rem; font-weight: bold;"><span>🔒 Secure Connection</span></div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

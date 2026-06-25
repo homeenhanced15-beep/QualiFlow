@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Customization Assessment | Leads QualiFlow</title>
+    <meta name="description" content="Complete our assessment to build your customized lead qualification chatbot and AI Clone with Anna, our AI expert.">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://apis.google.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self';">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <style>
+        .step { display: none; }
+        .step.active { display: block; }
+        .progress-container { margin-bottom: 2rem; }
+        .progress-bar { background: #eee; height: 10px; border-radius: 5px; overflow: hidden; }
+        .progress-fill { background: #008554; height: 100%; width: 0%; transition: width 0.3s ease; }
+        .error-message { color: #d93025; font-size: 0.9rem; margin-top: 0.5rem; display: none; }
+        .form-group { margin-bottom: 1.5rem; }
+        .checkbox-group { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 0.5rem; }
+        .summary-item { margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid #eee; }
+        .summary-label { font-weight: bold; display: block; }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo" aria-label="Leads QualiFlow Home">
+                <img src="logo.svg" alt="Leads QualiFlow Logo" width="180" height="40">
+            </a>
+            <nav aria-label="Main navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="how-it-works.html">How It Works</a></li>
+                    <li><a href="anna.html">Meet Anna</a></li>
+                    <li><a href="ai-clone.html">AI Clone</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content" class="container" style="padding: 2rem 1rem; max-width: 800px;">
+        <h1>Chatbot Assessment</h1>
+        <p>Guided by <strong>Anna, AI Expert</strong></p>
+
+        <div class="progress-container" aria-hidden="true">
+            <div class="progress-bar">
+                <div id="progress-fill" class="progress-fill"></div>
+            </div>
+            <p id="step-counter-text" style="margin-top: 0.5rem; font-weight: bold;">Step 1 of 6</p>
+        </div>
+        <p id="progress-announcer" class="sr-only" aria-live="polite">Step 1 of 6: Business Profile</p>
+
+        <form id="assessment-form" novalidate>
+            <!-- Step 1: Business Profile -->
+            <fieldset id="step-1" class="step active">
+                <legend><h2>Step 1: Business Profile</h2></legend>
+                <div class="form-group">
+                    <label for="business-name">Business Name <span aria-hidden="true">*</span></label>
+                    <input type="text" id="business-name" name="business_name" required aria-required="true" class="form-control">
+                    <p id="error-business-name" class="error-message" aria-live="assertive">Please enter your business name.</p>
+                </div>
+                <div class="form-group">
+                    <label for="industry">Industry <span aria-hidden="true">*</span></label>
+                    <select id="industry" name="industry" required aria-required="true" class="form-control">
+                        <option value="">Select an industry...</option>
+                        <option value="SaaS">SaaS</option>
+                        <option value="Real Estate">Real Estate</option>
+                        <option value="Financial Services">Financial Services</option>
+                        <option value="Legal">Legal</option>
+                        <option value="Medical">Medical</option>
+                        <option value="Home Services">Home Services</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <p id="error-industry" class="error-message" aria-live="assertive">Please select an industry.</p>
+                </div>
+                <div class="form-group">
+                    <label for="company-size">Company Size <span aria-hidden="true">*</span></label>
+                    <select id="company-size" name="company_size" required aria-required="true" class="form-control">
+                        <option value="">Select company size...</option>
+                        <option value="1-10">1-10</option>
+                        <option value="11-50">11-50</option>
+                        <option value="51-200">51-200</option>
+                        <option value="200+">200+</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="website-url">Website URL</label>
+                    <input type="url" id="website-url" name="website_url" class="form-control" placeholder="https://example.com">
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-primary next-btn" data-next="2" aria-label="Go to Step 2: Ideal Customer Profile">Next Step →</button>
+                </div>
+            </fieldset>
+
+            <!-- Step 2: Ideal Customer Profile -->
+            <fieldset id="step-2" class="step">
+                <legend><h2>Step 2: Ideal Customer Profile</h2></legend>
+                <div class="form-group">
+                    <p id="target-industries-label">Target Industries (Select all that apply)</p>
+                    <div class="checkbox-group" role="group" aria-labelledby="target-industries-label">
+                        <label><input type="checkbox" name="target_industries" value="SaaS"> SaaS</label>
+                        <label><input type="checkbox" name="target_industries" value="Real Estate"> Real Estate</label>
+                        <label><input type="checkbox" name="target_industries" value="Finance"> Finance</label>
+                        <label><input type="checkbox" name="target_industries" value="Legal"> Legal</label>
+                        <label><input type="checkbox" name="target_industries" value="Health"> Health</label>
+                        <label><input type="checkbox" name="target_industries" value="Construction"> Construction</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="target-size">Target Company Size</label>
+                    <select id="target-size" name="target_size" class="form-control">
+                        <option value="Any">Any Size</option>
+                        <option value="1-10">1-10</option>
+                        <option value="11-50">11-50</option>
+                        <option value="51-200">51-200</option>
+                        <option value="200+">200+</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="dm-role">Decision-Maker Role/Title</label>
+                    <input type="text" id="dm-role" name="dm_role" class="form-control" placeholder="e.g. CEO, Marketing Director">
+                </div>
+                <div class="form-group">
+                    <label for="pain-points">Primary pain point(s) your solution solves</label>
+                    <textarea id="pain-points" name="pain_points" class="form-control" rows="3"></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary prev-btn" data-prev="1" aria-label="Back to Step 1: Business Profile">← Back</button>
+                    <button type="button" class="btn btn-primary next-btn" data-next="3" aria-label="Go to Step 3: Qualification Criteria">Next Step →</button>
+                </div>
+            </fieldset>
+
+            <!-- Step 3: Qualification Criteria -->
+            <fieldset id="step-3" class="step">
+                <legend><h2>Step 3: Qualification Criteria</h2></legend>
+                <div class="form-group">
+                    <label for="min-budget">Minimum Budget Range</label>
+                    <select id="min-budget" name="min_budget" class="form-control">
+                        <option value="Any">No Minimum</option>
+                        <option value="< $1k">< $1k</option>
+                        <option value="$1k - $5k">$1k - $5k</option>
+                        <option value="$5k - $10k">$5k - $10k</option>
+                        <option value="$10k+">$10k+</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="timeline">Purchase Timeline</label>
+                    <select id="timeline" name="timeline" class="form-control">
+                        <option value="immediate">Immediate</option>
+                        <option value="30 days">Within 30 days</option>
+                        <option value="1-3 months">1-3 months</option>
+                        <option value="exploring">Just exploring</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="authority">Decision Authority Needed</label>
+                    <select id="authority" name="authority" class="form-control">
+                        <option value="sole">Sole decision-maker</option>
+                        <option value="team">Part of a team</option>
+                        <option value="others">Need to convince others</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="custom-questions">3 custom qualifying questions they'd want the chatbot to ask</label>
+                    <textarea id="custom-questions" name="custom_questions" class="form-control" rows="4" placeholder="1. ...&#10;2. ...&#10;3. ..."></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary prev-btn" data-prev="2" aria-label="Back to Step 2: Ideal Customer Profile">← Back</button>
+                    <button type="button" class="btn btn-primary next-btn" data-next="4" aria-label="Go to Step 4: Preferences">Next Step →</button>
+                </div>
+            </fieldset>
+
+            <!-- Step 4: Preferences -->
+            <fieldset id="step-4" class="step">
+                <legend><h2>Step 4: Preferences</h2></legend>
+                <div class="form-group">
+                    <p id="languages-label">Which languages should the chatbot support?</p>
+                    <div class="checkbox-group" role="group" aria-labelledby="languages-label">
+                        <label><input type="checkbox" name="languages" value="English" checked> English</label>
+                        <label><input type="checkbox" name="languages" value="Spanish"> Spanish</label>
+                        <label><input type="checkbox" name="languages" value="French"> French</label>
+                        <label><input type="checkbox" name="languages" value="Mandarin"> Mandarin</label>
+                        <label><input type="checkbox" name="languages" value="Hindi"> Hindi</label>
+                        <label><input type="checkbox" name="languages" value="Arabic"> Arabic</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="delivery">Lead Delivery Method</label>
+                    <select id="delivery" name="delivery" class="form-control">
+                        <option value="email">Email</option>
+                        <option value="CRM">CRM (Salesforce, HubSpot, etc.)</option>
+                        <option value="Slack">Slack</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="cadence">Preferred Follow-up Cadence</label>
+                    <select id="cadence" name="cadence" class="form-control">
+                        <option value="instant">Instant</option>
+                        <option value="daily">Daily Batch</option>
+                        <option value="weekly">Weekly Summary</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="territory">Territory/Geographic Focus</label>
+                    <input type="text" id="territory" name="territory" class="form-control" placeholder="e.g. USA, Pennsylvania, North America">
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary prev-btn" data-prev="3" aria-label="Back to Step 3: Qualification Criteria">← Back</button>
+                    <button type="button" class="btn btn-primary next-btn" data-next="5" aria-label="Go to Step 5: Your AI Clone">Next Step →</button>
+                </div>
+            </fieldset>
+
+            <!-- Step 5: Your AI Clone -->
+            <fieldset id="step-5" class="step">
+                <legend><h2>Step 5: Your AI Clone</h2></legend>
+                <div class="form-group">
+                    <p id="ai-clone-pref-label">Would you like an AI clone that prospects can talk to?</p>
+                    <div role="radiogroup" aria-labelledby="ai-clone-pref-label">
+                        <label><input type="radio" name="ai_clone_pref" value="yes" checked> Yes, I want an AI representative</label><br>
+                        <label><input type="radio" name="ai_clone_pref" value="no"> No, just use the qualification chatbot</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="comm-style">Describe your communication style:</label>
+                    <select id="comm-style" name="comm_style" class="form-control">
+                        <option value="Professional">Professional</option>
+                        <option value="Casual">Casual</option>
+                        <option value="Friendly">Friendly</option>
+                        <option value="Direct">Direct</option>
+                        <option value="Consultative">Consultative</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="sales-philosophy">What's your personal sales philosophy or approach?</label>
+                    <textarea id="sales-philosophy" name="sales_philosophy" class="form-control" rows="3" placeholder="e.g. I believe in providing value first..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="key-points">Share 3-5 key points you always want prospects to know about your offering</label>
+                    <textarea id="key-points" name="key_points" class="form-control" rows="4" placeholder="1. ...&#10;2. ...&#10;3. ..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="common-objection">What's a common objection you hear, and how do you handle it?</label>
+                    <textarea id="common-objection" name="common_objection" class="form-control" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="closing-line">Your typical closing line or call to action:</label>
+                    <input type="text" id="closing-line" name="closing_line" class="form-control" placeholder="e.g. Does that sound like a plan?">
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary prev-btn" data-prev="4" aria-label="Back to Step 4: Preferences">← Back</button>
+                    <button type="button" class="btn btn-primary next-btn" data-next="6" aria-label="Go to Step 6: Review Assessment">Review Assessment →</button>
+                </div>
+            </fieldset>
+
+            <!-- Step 6: Review & Submit -->
+            <fieldset id="step-6" class="step">
+                <legend><h2>Step 6: Review & Submit</h2></legend>
+                <p>Please review your answers before Anna begins building your chatbot and AI Clone.</p>
+                
+                <div id="review-summary" style="margin: 2rem 0; padding: 1.5rem; background: #f9f9f9; border-radius: 8px;">
+                    <!-- Filled by JS -->
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary prev-btn" data-prev="5" aria-label="Back to Step 5: Your AI Clone">← Edit Answers</button>
+                    <button type="submit" class="btn btn-accent btn-lg" aria-label="Submit your chatbot assessment">Submit Assessment</button>
+                </div>
+            </fieldset>
+        </form>
+
+        <div id="success-message" style="display: none; text-align: center; padding: 3rem 1rem;">
+            <div style="font-size: 4rem; margin-bottom: 1rem;">✅</div>
+            <h2>Thank You!</h2>
+            <p class="lead">Anna has received your assessment and is now processing your requirements.</p>
+            <p>Your custom lead qualification chatbot and AI Clone will be ready and a preview link sent to you within <strong>24 hours</strong>.</p>
+            <a href="index.html" class="btn btn-primary" style="margin-top: 2rem;">Return to Home</a>
+        </div>
+    </main>
+
+    <!-- Accessibility Controls -->
+    <div class="acc-controls">
+        <button id="voice-btn" class="voice-btn" aria-label="Trigger Voice Navigation">🎤</button>
+        <button id="cc-btn" class="cc-btn" aria-label="Toggle Real-time Captions">CC</button>
+    </div>
+
+    <!-- Captions Overlay -->
+    <div id="captions-container" class="captions-container" role="status" aria-live="polite">
+        <p id="caption-text"></p>
+    </div>
+
+    <footer>
+        <div class="container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;">
+            <div>
+                <h3>Leads QualiFlow</h3>
+                <p>Delivering high-intent leads through accessible AI.</p>
+                <div class="ada-badge" style="background: transparent; border-color: #444; color: #ccc;">
+                     <span>WCAG 2.1 AA Compliant</span>
+                </div>
+            </div>
+            <div>
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="how-it-works.html">How It Works</a></li>
+                    <li><a href="anna.html">Meet Anna</a></li>
+                    <li><a href="ai-clone.html">AI Clone</a></li>
+                    <li><a href="guides.html">Guides</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                    <li><a href="cookies.html">Cookie Policy</a></li>
+                    <li><a href="disclaimers.html">Disclaimers</a></li>
+                    <li><a href="accessibility.html">Accessibility Statement</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container" style="border-top: 1px solid #333; margin-top: 2rem; padding-top: 1rem; text-align: center;">
+            <p>&copy; 2026 Leads QualiFlow. All rights reserved.</p>
+        </div>
+        <div class="secure-badge" style="display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1rem; color: #008554; font-size: 0.9rem; font-weight: bold;"><span>🔒 Secure Connection</span></div>
+    </footer>
+
+    <script src="app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('assessment-form');
+            const steps = document.querySelectorAll('.step');
+            const nextBtns = document.querySelectorAll('.next-btn');
+            const prevBtns = document.querySelectorAll('.prev-btn');
+            const progressFill = document.getElementById('progress-fill');
+            const stepCounterText = document.getElementById('step-counter-text');
+            const progressAnnouncer = document.getElementById('progress-announcer');
+            const reviewSummary = document.getElementById('review-summary');
+            const successMessage = document.getElementById('success-message');
+            
+            let currentStep = 1;
+            const TOTAL_STEPS = 6;
+
+            const updateStep = (stepNum) => {
+                steps.forEach(s => s.classList.remove('active'));
+                const activeStep = document.getElementById(`step-${stepNum}`);
+                activeStep.classList.add('active');
+                
+                // Update Progress
+                const percent = ((stepNum - 1) / (TOTAL_STEPS - 1)) * 100;
+                progressFill.style.width = `${percent}%`;
+                stepCounterText.textContent = `Step ${stepNum} of ${TOTAL_STEPS}`;
+                
+                // Accessibility: Announce progress and move focus
+                const stepTitle = activeStep.querySelector('h2').textContent;
+                progressAnnouncer.textContent = `Step ${stepNum} of ${TOTAL_STEPS}: ${stepTitle}`;
+                activeStep.querySelector('h2').setAttribute('tabindex', '-1');
+                activeStep.querySelector('h2').focus();
+
+                if (stepNum === TOTAL_STEPS) {
+                    generateSummary();
+                }
+            };
+
+            const validateStep = (stepNum) => {
+                const stepEl = document.getElementById(`step-${stepNum}`);
+                const inputs = stepEl.querySelectorAll('[required]');
+                let valid = true;
+                
+                inputs.forEach(input => {
+                    const errorEl = document.getElementById(`error-${input.id}`);
+                    if (!input.value) {
+                        valid = false;
+                        input.setAttribute('aria-invalid', 'true');
+                        if (errorEl) errorEl.style.display = 'block';
+                    } else {
+                        input.setAttribute('aria-invalid', 'false');
+                        if (errorEl) errorEl.style.display = 'none';
+                    }
+                });
+                return valid;
+            };
+
+            const generateSummary = () => {
+                const formData = new FormData(form);
+                let html = '';
+                
+                const labels = {
+                    'business_name': 'Business Name',
+                    'industry': 'Industry',
+                    'company_size': 'Company Size',
+                    'website_url': 'Website URL',
+                    'target_size': 'Target Company Size',
+                    'dm_role': 'Decision-Maker Role',
+                    'pain_points': 'Pain Points',
+                    'min_budget': 'Min Budget',
+                    'timeline': 'Timeline',
+                    'authority': 'Decision Authority',
+                    'custom_questions': 'Custom Questions',
+                    'delivery': 'Delivery Method',
+                    'cadence': 'Follow-up Cadence',
+                    'territory': 'Territory',
+                    'ai_clone_pref': 'AI Clone Preference',
+                    'comm_style': 'Communication Style',
+                    'sales_philosophy': 'Sales Philosophy',
+                    'key_points': 'Key Points',
+                    'common_objection': 'Common Objection',
+                    'closing_line': 'Closing Line'
+                };
+
+                for (let [key, value] of formData.entries()) {
+                    if (labels[key] && value) {
+                        html += `<div class="summary-item"><span class="summary-label">${labels[key]}</span> <span>${value}</span></div>`;
+                    }
+                }
+
+                // Handle checkboxes separately
+                const targetIndustries = Array.from(formData.getAll('target_industries'));
+                if (targetIndustries.length > 0) {
+                    html += `<div class="summary-item"><span class="summary-label">Target Industries</span> <span>${targetIndustries.join(', ')}</span></div>`;
+                }
+
+                const languages = Array.from(formData.getAll('languages'));
+                if (languages.length > 0) {
+                    html += `<div class="summary-item"><span class="summary-label">Languages</span> <span>${languages.join(', ')}</span></div>`;
+                }
+
+                reviewSummary.innerHTML = html;
+            };
+
+            nextBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    if (validateStep(currentStep)) {
+                        currentStep = parseInt(btn.dataset.next);
+                        updateStep(currentStep);
+                    }
+                });
+            });
+
+            prevBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    currentStep = parseInt(btn.dataset.prev);
+                    updateStep(currentStep);
+                });
+            });
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                form.style.display = 'none';
+                document.querySelector('.progress-container').style.display = 'none';
+                document.querySelector('h1').style.display = 'none';
+                document.querySelector('main > p').style.display = 'none';
+                successMessage.style.display = 'block';
+                successMessage.setAttribute('tabindex', '-1');
+                successMessage.focus();
+                
+                if (window.showCaption) {
+                    window.showCaption("Assessment submitted successfully!");
+                }
+            });
+        });
+    </script>
+</body>
+</html>
