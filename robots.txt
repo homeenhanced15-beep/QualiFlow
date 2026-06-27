@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://homeenhanced15-beep.github.io/QualiFlow/sitemap.xml

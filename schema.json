@@ -1,0 +1,26 @@
+[{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Leads QualiFlow",
+  "description": "AI-powered lead qualification service delivering ready-to-buy qualified leads in fixed-price packages.",
+  "url": "https://homeenhanced15-beep.github.io/QualiFlow/",
+  "logo": "https://homeenhanced15-beep.github.io/QualiFlow/logo.svg",
+  "foundingDate": "2026",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "sales@leadsqualiflow.com",
+    "contactType": "sales"
+  },
+  "sameAs": []
+}, {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Leads QualiFlow",
+  "url": "https://homeenhanced15-beep.github.io/QualiFlow/",
+  "description": "Buy pre-qualified, ready-to-close leads delivered monthly. No software, no bots to manage — just results.",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://homeenhanced15-beep.github.io/QualiFlow/pricing.html",
+    "query-input": "required"
+  }
+}]
