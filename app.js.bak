@@ -312,25 +312,5 @@ document.addEventListener('DOMContentLoaded', () => {
     attachPWmeter('login-password','password-strength');
     attachPWmeter('reg-password','reg-pass-strength');
 
-    
-// Buy Now buttons - CSP-safe (no inline onclick)
-document.addEventListener('click', function(e) {
-  var btn = e.target.closest('[data-package]');
-  if (btn && btn.classList.contains('btn-primary')) {
-    e.preventDefault();
-    var pkg = btn.getAttribute('data-package');
-    var msg = 'Payment via Stripe coming soon. Contact sales@leadsqualiflow.com for ' + pkg + '.';
-    if (typeof announce === 'function') announce(msg);
-  }
-});
-
-
-// Try Again button in questionnaire - CSP-safe
-document.addEventListener('click', function(e) {
-  if (e.target && e.target.id === 'try-again-btn') {
-    location.reload();
-  }
-});
-
-console.log('🔒 Leads QualiFlow — Auth, Security & Accessibility Loaded');
+    console.log('🔒 Leads QualiFlow — Auth, Security & Accessibility Loaded');
 });

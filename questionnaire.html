@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chatbot Customization Assessment | Leads QualiFlow</title>
     
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://apis.google.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://apis.google.com https://accounts.google.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self';">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <link rel="stylesheet" href="styles.css">
@@ -589,7 +589,7 @@
                         <p style="color: #d9534f; font-weight: bold;">⚠ Could not reach the server</p>
                         <p style="font-size: 0.9rem;">${err.message}</p>
                         <p style="font-size: 0.85rem; margin-top: 0.5rem;">Your data is saved. The backend may need a moment to wake up (free tier sleep).</p>
-                        <button onclick="location.reload()" class="btn btn-primary" style="margin-top: 1rem;">Try Again</button>
+                        <button id="try-again-btn" class="btn btn-primary" style="margin-top: 1rem;">Try Again</button>
                     `;
                     form.appendChild(errorMsg);
                     
