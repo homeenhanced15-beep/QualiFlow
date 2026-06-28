@@ -490,18 +490,112 @@
                 });
             });
 
-            form.addEventListener('submit', (e) => {
+            form.addEventListener('submit', async (e) => {
                 e.preventDefault();
-                form.style.display = 'none';
-                document.querySelector('.progress-container').style.display = 'none';
-                document.querySelector('h1').style.display = 'none';
-                document.querySelector('main > p').style.display = 'none';
-                successMessage.style.display = 'block';
-                successMessage.setAttribute('tabindex', '-1');
-                successMessage.focus();
                 
-                if (window.showCaption) {
-                    window.showCaption("Assessment submitted successfully!");
+                // ─── Configure your backend URL here ───
+                const BACKEND_URL = 'https://leads-qualiflow.onrender.com/api/generate';
+                // ────────────────────────────────────────
+                
+                // Collect all form data
+                const formData = new FormData(form);
+                const data = {};
+                
+                const fieldMap = {
+                    'business_name': 'business_name',
+                    'industry': 'industry',
+                    'company_size': 'company_size',
+                    'website_url': 'website_url',
+                    'target_size': 'target_size',
+                    'dm_role': 'decision_maker',
+                    'pain_points': 'pain_points',
+                    'min_budget': 'min_budget',
+                    'timeline': 'timeline',
+                    'authority': 'authority',
+                    'custom_questions': 'custom_q1',
+                    'delivery': 'delivery_method',
+                    'cadence': 'follow_up',
+                    'territory': 'territory',
+                    'ai_clone_pref': 'ai_clone',
+                    'comm_style': 'comm_style',
+                    'sales_philosophy': 'sales_philosophy',
+                    'key_points': 'key_points',
+                    'common_objection': 'objection',
+                    'closing_line': 'closing_line'
+                };
+                
+                for (let [key, value] of formData.entries()) {
+                    if (fieldMap[key]) {
+                        data[fieldMap[key]] = value;
+                    } else if (!['target_industries', 'languages'].includes(key)) {
+                        data[key] = value;
+                    }
+                }
+                
+                // Handle multi-select fields
+                data['target_industries'] = Array.from(formData.getAll('target_industries'));
+                data['languages'] = Array.from(formData.getAll('languages'));
+                
+                // Show submitting state
+                const submitBtn = form.querySelector('button[type="submit"]');
+                const originalText = submitBtn.textContent;
+                submitBtn.textContent = '⏳ Submitting...';
+                submitBtn.disabled = true;
+                
+                try {
+                    const response = await fetch(BACKEND_URL, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(data)
+                    });
+                    
+                    const result = await response.json();
+                    
+                    if (response.ok && result.success) {
+                        form.style.display = 'none';
+                        document.querySelector('.progress-container').style.display = 'none';
+                        document.querySelector('h1').textContent = '✅ Assessment Submitted!';
+                        document.querySelector('main > p').textContent = '';
+                        successMessage.style.display = 'block';
+                        successMessage.setAttribute('tabindex', '-1');
+                        successMessage.focus();
+                        
+                        // Update success message with download links
+                        successMessage.innerHTML = `
+                            <h2 style="color: #008554;">Thank you, ${result.business_name}!</h2>
+                            <p>Anna has processed your assessment. Your documents are ready:</p>
+                            <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin: 2rem 0;">
+                                <a href="${result.download_urls.chatbot}" class="btn btn-primary" target="_blank">⬇ Chatbot Config</a>
+                                <a href="${result.download_urls.scoring}" class="btn btn-primary" target="_blank">⬇ Scoring Matrix</a>
+                                <a href="${result.download_urls.clone}" class="btn btn-primary" target="_blank">⬇ AI Clone Brief</a>
+                            </div>
+                            <p style="font-size: 0.9rem; color: #666;">📧 We'll also email these to you shortly.</p>
+                        `;
+                        
+                        if (window.showCaption) {
+                            window.showCaption("Assessment submitted successfully! Documents generated.");
+                        }
+                    } else {
+                        throw new Error(result.error || 'Submission failed');
+                    }
+                } catch (err) {
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                    
+                    // Show error but still allow viewing the summary
+                    const errorMsg = document.createElement('div');
+                    errorMsg.style.cssText = 'background: #fff3f3; border: 1px solid #d9534f; padding: 1rem; border-radius: 8px; margin-top: 1rem; text-align: center;';
+                    errorMsg.innerHTML = `
+                        <p style="color: #d9534f; font-weight: bold;">⚠ Could not reach the server</p>
+                        <p style="font-size: 0.9rem;">${err.message}</p>
+                        <p style="font-size: 0.85rem; margin-top: 0.5rem;">Your data is saved. The backend may need a moment to wake up (free tier sleep).</p>
+                        <button onclick="location.reload()" class="btn btn-primary" style="margin-top: 1rem;">Try Again</button>
+                    `;
+                    form.appendChild(errorMsg);
+                    
+                    if (window.showCaption) {
+                        window.showCaption("Server connection error. Please try again.");
+                    }
                 }
             });
         });
